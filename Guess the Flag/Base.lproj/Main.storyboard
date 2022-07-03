@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4y-Xr-L7h">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="5ph-Mc-QlK">
+            <objects>
+                <viewController id="js9-sy-eW1" customClass="ViewController" customModule="Guess_the_Flag" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eCM-dv-Of4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAA-D9-QQ3">
+                                <rect key="frame" x="95" y="100" width="224" height="114"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="russia" title=""/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="js9-sy-eW1" eventType="touchUpInside" id="xDg-jL-ieV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvb-Vh-pPz">
+                                <rect key="frame" x="95" y="244" width="224" height="114"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="russia"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="js9-sy-eW1" eventType="touchUpInside" id="Ltu-wk-zUy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYI-Aa-L0B">
+                                <rect key="frame" x="95" y="388" width="224" height="114"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="russia"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="js9-sy-eW1" eventType="touchUpInside" id="R8j-Bv-Aqn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RHt-d6-QMY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jvb-Vh-pPz" firstAttribute="width" secondItem="eCM-dv-Of4" secondAttribute="height" multiplier="1:4" id="Iom-H9-avK"/>
+                            <constraint firstItem="iYI-Aa-L0B" firstAttribute="top" secondItem="jvb-Vh-pPz" secondAttribute="bottom" constant="30" id="J66-Ot-0SN"/>
+                            <constraint firstItem="iYI-Aa-L0B" firstAttribute="height" secondItem="jvb-Vh-pPz" secondAttribute="height" id="Jll-1m-xHB"/>
+                            <constraint firstItem="jvb-Vh-pPz" firstAttribute="centerX" secondItem="uAA-D9-QQ3" secondAttribute="centerX" id="Nme-p8-ekC"/>
+                            <constraint firstItem="iYI-Aa-L0B" firstAttribute="centerX" secondItem="jvb-Vh-pPz" secondAttribute="centerX" id="Qh1-7Y-kx7"/>
+                            <constraint firstItem="jvb-Vh-pPz" firstAttribute="top" secondItem="uAA-D9-QQ3" secondAttribute="bottom" constant="30" id="Uxr-YT-2cE"/>
+                            <constraint firstItem="jvb-Vh-pPz" firstAttribute="height" secondItem="uAA-D9-QQ3" secondAttribute="height" id="c02-SK-wmE"/>
+                            <constraint firstItem="iYI-Aa-L0B" firstAttribute="width" secondItem="eCM-dv-Of4" secondAttribute="height" multiplier="1:4" id="dLl-K2-jaT"/>
+                            <constraint firstItem="uAA-D9-QQ3" firstAttribute="centerX" secondItem="RHt-d6-QMY" secondAttribute="centerX" id="hXL-Pk-wxs"/>
+                            <constraint firstItem="uAA-D9-QQ3" firstAttribute="width" secondItem="eCM-dv-Of4" secondAttribute="height" multiplier="1:4" id="qQe-x9-yvh"/>
+                            <constraint firstItem="RHt-d6-QMY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iYI-Aa-L0B" secondAttribute="bottom" constant="20" id="rEn-ru-Bu5"/>
+                            <constraint firstItem="uAA-D9-QQ3" firstAttribute="top" secondItem="RHt-d6-QMY" secondAttribute="top" constant="12" id="uwf-sB-eem"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="r76-TE-h8u"/>
+                    <connections>
+                        <outlet property="button1" destination="uAA-D9-QQ3" id="4no-WI-whd"/>
+                        <outlet property="button2" destination="jvb-Vh-pPz" id="8fw-iY-wlm"/>
+                        <outlet property="button3" destination="iYI-Aa-L0B" id="Mxf-Me-UGW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e99-bf-1vE" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="109.82142857142857"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kSk-R0-ld4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M4y-Xr-L7h" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zSg-uj-63f">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="js9-sy-eW1" kind="relationship" relationship="rootViewController" id="4Xb-tn-lJI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eol-AC-DUd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="109.82142857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="russia" width="200" height="100"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
