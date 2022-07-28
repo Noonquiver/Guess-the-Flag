@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import UserNotifications
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     @IBOutlet var button1: UIButton!
     @IBOutlet var button2: UIButton!
     @IBOutlet var button3: UIButton!
+    
     var countries = Array<String>()
     var score = 0
+    var correctAnswer = 0
+    var questionsAsked = 0
+    
     var highestScore = 0 {
         didSet {
             if highestScore == score {
@@ -21,9 +26,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    var correctAnswer = 0
-    var questionsAsked = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,8 @@ class ViewController: UIViewController {
         
         button3.layer.borderWidth = 1
         button3.layer.borderColor = UIColor.lightGray.cgColor*/ //Couldn't solve border problem once the new constrains are in place.
+        
+        dailyPlayNotification()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showScore))
         
@@ -133,5 +137,52 @@ class ViewController: UIViewController {
                 self.button2.transform = CGAffineTransform(scaleX: x - 0.05, y: y - 0.05)
                 self.button3.transform = CGAffineTransform(scaleX: x - 0.05, y: y - 0.05)
         }
+    }
+    
+    func dailyPlayNotification() {
+        let notificationCenter = UNUserNotificationCenter.current()
+        
+        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) {
+            granted, error in
+        }
+
+        notificationCenter.removeAllPendingNotificationRequests()
+        notificationCenter.delegate = self
+        
+        let open = UNNotificationAction(identifier: "open", title: "Open application", options: .foreground)
+        let category = UNNotificationCategory(identifier: "play", actions: [open], intentIdentifiers: [])
+        notificationCenter.setNotificationCategories([category])
+        
+        let play = UNMutableNotificationContent()
+        play.categoryIdentifier = "play"
+        play.title = "Have you play Guess the Flag today?"
+        play.body = "Friendly reminder to do it, it's so much fun!"
+        play.sound = .default
+        play.userInfo = ["dailyPlay": "_"]
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = 14
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: play, trigger: trigger)
+        notificationCenter.add(request)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        
+        if let dailyPlay = userInfo["dailyPlay"] as? String {
+            print("Custom data received: \(dailyPlay)")
+            
+            switch response.actionIdentifier {
+            case "open":
+                if let viewController = storyboard?.instantiateViewController(withIdentifier: "ViewController") {
+                    navigationController?.pushViewController(viewController, animated: true)
+                }
+            default: break
+            }
+        }
+        
+        completionHandler()
     }
 }

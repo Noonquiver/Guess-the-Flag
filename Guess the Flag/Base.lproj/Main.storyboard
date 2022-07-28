@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="5ph-Mc-QlK">
             <objects>
-                <viewController id="js9-sy-eW1" customClass="ViewController" customModule="Guess_the_Flag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="js9-sy-eW1" customClass="ViewController" customModule="Guess_the_Flag" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eCM-dv-Of4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
